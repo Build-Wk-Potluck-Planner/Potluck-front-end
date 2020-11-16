@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.event-details {
+  width: 50%;
+  margin: 2% auto;
+  padding: 2% 0 2% 0;
+  border: 2px solid #696969;
+  border-radius: 5%;
+  background-color: #92817a;
+}
+
+.event-form {
+  width: 50%;
+  margin: 3% 25% 3% 25%;
+  padding: 0% 0 0% 0;
+  border-radius: 10%;
+  background-color: #bedbbb;
+}
+
+.event-form input {
+  display: flex;
+  flex-direction: column;
+  margin: 2% auto;
+}
+
+.event-details button {
+  margin: 0%;
+  background: aquamarine;
+}
+.event-card {
+  width: 50%;
+  margin: 8% 25% 2% 25%;
+  padding: 1% 0 1% 0;
+  padding-bottom: 2%;
+  border-radius: 10%;
+  background-color: #bedbbb;
+}
+
+.event-card img {
+  width: 70%;
+  margin: 2% auto;
+}
+
+.form-container {
+  width: 50%;
+  margin: 8% 25% 2% 25%;
+  padding: 2% 3% 2% 3%;
+  border-radius: 10%;
+  background-color: #bedbbb;
+}
+
+@media (max-width: 500px) {
+  .event-form {
+    width: 75%;
+    margin: 13% auto;
+  }
+
+  .event-card {
+    width: 75%;
+    margin: 13% auto;
+  }
+
+  .event-details {
+    width: 75%;
+  }
+
+  .form-container {
+    width: 75%;
+    margin: 13% auto;
+  }
+}
