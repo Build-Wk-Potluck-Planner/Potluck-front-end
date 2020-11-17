@@ -8,8 +8,8 @@ import {Row, MainPageContainer} from "../../styles"
 
 const formSchema = yup.object().shape({
     name: yup.string().required("Name is a required field."),
-    email: yup.string().required("Must be in correct youremail@domain.com format"),
-    password: yup.string().required("Password must be at least 7 Characters long"),
+    email: yup.string().email("Must be in correct youremail@domain.com format").required("Must include email address"),
+    password: yup.string().required("Password must be at least 6 Characters long"),
   });
 
 export default function Form(){
@@ -97,6 +97,7 @@ export default function Form(){
                 value={register.name}
                 onChange={inputChange}
                 />
+                {errors.name.length > 0 ? (<p className="error">{errors.name}</p>) : null}
             </label>
 
             <label htmlFor = 'email'>
@@ -109,6 +110,7 @@ export default function Form(){
             value={register.email}
             onChange={inputChange}
             />
+            {errors.email.length > 0 ? (<p className="error">{errors.email}</p>) : null}
         </label>
 
         <label htmlFor = 'password'>
@@ -121,6 +123,7 @@ export default function Form(){
         value={register.password}
         onChange={inputChange}
         />
+        {errors.password.length > 6 ? (<p className="error">{errors.password}</p>) : null}
     </label>
             <button name = 'submit' disabled={buttonDisabled}>Submit</button>
             <pre>{JSON.stringify(post, null, 2)}</pre>
