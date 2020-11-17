@@ -9,6 +9,7 @@ import MyEvents from "./components/main-app/MyEvents";
 import AddEvent from "./components/main-app/AddEvent";
 import EditEvent from "./components/main-app/EditEvent";
 import PrivateRoute from "./components/main-app/PrivateRoute";
+import AddAttendee from "./components/main-app/AddAttendee";
 import "./styles/App.css";
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <PrivateRoute exact path="/" component={MyEvents} />
           <PrivateRoute exact path="/add-event" component={AddEvent} />
           <PrivateRoute exact path="/edit-event/:id" component={EditEvent} />
+          <PrivateRoute exact path="/add-attendee/" component={AddAttendee} />
         </Switch>
       </div>
     </AppProvider>

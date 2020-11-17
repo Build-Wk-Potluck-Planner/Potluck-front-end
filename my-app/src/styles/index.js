@@ -97,7 +97,7 @@ export const MainPageContainer = styled.div`
   height: 100vh;
   width: 100%;
   background: url(https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/Dishes_at_Potluck.jpg)
-  rgba(0, 0, 0, 0.4);
+    rgba(0, 0, 0, 0.4);
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
@@ -105,11 +105,11 @@ export const MainPageContainer = styled.div`
 `;
 
 export const Row = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-    color: white;
-    padding: 8% 0px;
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  color: white;
+  padding: 8% 0px;
+`;

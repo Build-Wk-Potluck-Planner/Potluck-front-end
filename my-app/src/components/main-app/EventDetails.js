@@ -16,12 +16,15 @@ const EventDetails = ({ event }) => {
   };
   return (
     <div className="event-details">
-      <img src={event.eventURL} alt="event-img" />
       <H3>{event.name}</H3>
       <Paragraph>{event.location}</Paragraph>
-      <Paragraph>{event.description}</Paragraph>
+      <Paragraph>{event.date}</Paragraph>
+      <Paragraph>{event.time}</Paragraph>
       <Link to={`/edit-event/${event.id}`}>
         <Button>Edit</Button>
+      </Link>
+      <Link to={`/add-attendee`}>
+        <Button>Add Attendee</Button>
       </Link>
       <Button
         onClick={() => {
