@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axiosWithAuth from "../../utils/axiosWithAuth";
-import { Input, Header, Button } from "../../styles/StyledComponents";
+import { Input, Header, Button } from "../../styles";
 
 const initialFormValues = {
   name: "",

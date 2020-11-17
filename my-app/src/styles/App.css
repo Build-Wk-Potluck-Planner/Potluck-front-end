@@ -84,4 +84,10 @@ code {
     width: 75%;
     margin: 13% auto;
   }
+
+  .registerForm {
+   display: flex;
+   flex-direction: column;
+  }
+
 }

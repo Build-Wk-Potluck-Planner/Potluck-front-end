@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "./AppContext";
 import axiosWithAuth from "../../utils/axiosWithAuth";
-import { Header, Button } from "../../styles/StyledComponents";
+import { Header, Button } from "../../styles/";
 import EventDetails from "./EventDetails";
 
 const MyEvents = () => {
