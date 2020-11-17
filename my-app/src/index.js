@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import theme from "./styles/StyledComponents";
+import theme from "./styles";
 // import './index.css';
 import App from "./App";
 // import reportWebVitals from './reportWebVitals';

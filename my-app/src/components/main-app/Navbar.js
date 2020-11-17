@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import eventLogo from "../../styles/eventLogo.png";
-import { LinksDiv, Links, Nav, Logo, H1 } from "../../styles/StyledComponents";
+import { LinksDiv, Links, Nav, Logo, H1 } from "../../styles";
 
 function NavBar() {
   return (

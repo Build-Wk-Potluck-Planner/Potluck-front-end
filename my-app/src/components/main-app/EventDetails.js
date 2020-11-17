@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
 import axiosWithAuth from "../../utils/axiosWithAuth";
-import { H3, Button, Paragraph } from "../../styles/StyledComponents";
+import { H3, Button, Paragraph } from "../../styles";
 
 const EventDetails = ({ event }) => {
   const history = useHistory();
