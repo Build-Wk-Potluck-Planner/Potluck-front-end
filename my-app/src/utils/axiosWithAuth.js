@@ -1,11 +1,12 @@
 import axios from "axios";
 
 export const axiosWithAuth = () => {
+  const token = localStorage.getItem("token");
   return axios.create({
-    baseURL: "https://thepotluckplanner.herokuapp.com/",
     headers: {
-      authorization: localStorage.getItem("token"),
+      Authorization: `Bearer ${token}`,
     },
+    baseURL: "https://buildweekpotluckplanner.herokuapp.com",
   });
 };
 

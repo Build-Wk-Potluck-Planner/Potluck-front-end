@@ -4,7 +4,7 @@ import axiosWithAuth from "../../utils/axiosWithAuth";
 import { Input, Header, Button } from "../../styles";
 
 const initialFormValues = {
-  name: "",
+  //name: "",
   location: "",
   time: "",
   date: "",
@@ -21,7 +21,7 @@ const AddEvent = () => {
   const addEvent = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/events", formValues)
+      .post(`/events/event`, formValues)
       .then(() => {
         history.push("/reload");
       })
@@ -33,13 +33,13 @@ const AddEvent = () => {
       <div className="event-form">
         <Header>Add Event</Header>
         <form onSubmit={addEvent}>
-          <Input
+          {/* <Input
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder="Name of Event"
             value={formValues.name}
             onChange={handleChanges}
-          />
+          /> */}
           <Input
             type="text"
             name="location"
@@ -61,6 +61,7 @@ const AddEvent = () => {
             value={formValues.date}
             onChange={handleChanges}
           />
+
           <Button>Add Event</Button>
         </form>
       </div>

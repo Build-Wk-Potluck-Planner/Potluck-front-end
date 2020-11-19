@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/App.css";
-import axiosWithAuth from "../../utils/axiosWithAuth";
+import axios from "axios";
 import * as yup from "yup";
 import { Row, MainPageContainer } from "../../styles";
 
 const formSchema = yup.object().shape({
-  name: yup.string().required("Name is a required field."),
+  fullname: yup.string().required("Name is a required field."),
   username: yup.string().required("Username is required field"),
   password: yup
     .string()
@@ -14,14 +14,14 @@ const formSchema = yup.object().shape({
 
 export default function Form() {
   const [register, setRegister] = useState({
-    name: "",
+    fullname: "",
     username: "",
     // email: "",
     password: "",
   });
 
   const [errors, setErrors] = useState({
-    name: "",
+    fullname: "",
     username: "",
     // email: "",
     password: "",
@@ -69,12 +69,15 @@ export default function Form() {
   //on submit
   const formSubmit = (e) => {
     e.preventDefault();
-    axiosWithAuth()
-      .post("/auth/register", register)
+    console.log(register);
+    axios
+      .post(
+        "https://buildweekpotluckplanner.herokuapp.com/createnewuser",
+        register
+      )
       .then((res) => {
-        setPost(res.data);
         setRegister({
-          name: "",
+          fullname: "",
           username: "",
           // email: "",
           password: "",
@@ -88,18 +91,18 @@ export default function Form() {
         <Row>
           <h1 id="register">Register</h1>
           <br />
-          <label htmlFor="name">
-            <h4>Name:</h4>
+          <label htmlFor="fullname">
+            <h4>Fullname:</h4>
             <input
               type="text"
-              name="name"
-              id="nameinput"
+              name="fullname"
+              id="fullnameinput"
               placeholder="Name"
               value={register.name}
               onChange={inputChange}
             />
-            {errors.name.length > 0 ? (
-              <p className="error">{errors.name}</p>
+            {errors.fullname.length > 0 ? (
+              <p className="error">{errors.fullname}</p>
             ) : null}
           </label>
           <label htmlFor="username">

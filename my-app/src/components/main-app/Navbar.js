@@ -6,11 +6,9 @@ import { LinksDiv, Links, Nav, Logo, H1 } from "../../styles";
 function NavBar() {
   return (
     <Nav>
-      {/* <Logo>
-        <Links to="/">
-          <img src={eventLogo} alt="logo" width="50%" />
-        </Links>
-      </Logo> */}
+      <Logo>
+        <Links to="/">Home</Links>
+      </Logo>
       <H1>Potluck Planner</H1>
       <LinksDiv>
         <Links to="/login">Log In</Links>

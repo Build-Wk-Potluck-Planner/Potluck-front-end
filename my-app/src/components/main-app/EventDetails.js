@@ -1,27 +1,28 @@
-import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory, Link, useParams } from "react-router-dom";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import { H3, Button, Paragraph } from "../../styles";
 
 const EventDetails = ({ event }) => {
   const history = useHistory();
+  const params = useParams();
 
   const removeEvent = (event) => {
     axiosWithAuth()
-      .delete(`/api/events/${event.id}`)
+      .delete(`/events/event/${event.eventid}`)
       .then(() => {
         history.push("/reload");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err, event));
   };
   return (
     <div className="event-details">
-      <H3>{event.name}</H3>
+      {/* <H3>{event.name}</H3> */}
       <Paragraph>{event.location}</Paragraph>
       <Paragraph>{event.date}</Paragraph>
       <Paragraph>{event.time}</Paragraph>
-      <Link to={`/edit-event/${event.id}`}>
-        <Button>Edit</Button>
+      <Link to={`/edit-event/${event.eventid}`}>
+        <Button>Edit Event</Button>
       </Link>
       <Link to={`/add-attendee`}>
         <Button>Add Attendee</Button>
@@ -33,6 +34,9 @@ const EventDetails = ({ event }) => {
       >
         Delete
       </Button>
+      {/* <Link to={`/my-attendees/${attendee.attendeeid}`}>
+        <Button>View Attendees</Button>
+      </Link> */}
     </div>
   );
 };

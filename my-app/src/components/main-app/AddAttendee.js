@@ -19,7 +19,7 @@ const AddAttendee = () => {
   const addAttendee = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/attendee", formValues)
+      .post("/attendees/attendee", formValues)
       .then(() => {
         history.push("/reload");
       })
@@ -28,13 +28,13 @@ const AddAttendee = () => {
 
   return (
     <>
-      <div className="attendee-form">
+      <div className="event-form">
         <Header>Add Attendee</Header>
         <form onSubmit={addAttendee}>
           <Input
             type="text"
-            name="atendee"
-            placeholder="Atendee's Name"
+            name="attendee"
+            placeholder="Attendee's Name"
             value={formValues.attendee}
             onChange={handleChanges}
           />

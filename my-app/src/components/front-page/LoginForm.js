@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import axiosWithAuth from "../../utils/axiosWithAuth";
+//import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
 import * as yup from "yup";
 // import {
@@ -9,7 +9,7 @@ import * as yup from "yup";
 //   Button,
 //   Input,
 //   Quote,
-// } from "../../styles/StyledComponents";
+// } from "../../styles;
 
 const initialFormValues = {
   username: "",
@@ -31,14 +31,24 @@ export default function LoginForm() {
   // Login
 
   const postNewLogin = (newLogin) => {
-    axiosWithAuth()
-      .post("/auth/login", newLogin)
+    axios
+      .post(
+        "https://buildweekpotluckplanner.herokuapp.com/login",
+        `grant_type=password&username=${newLogin.username}&password=${newLogin.password}`,
+        {
+          headers: {
+            // btoa is converting our client id/client secret into base64
+            Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      )
       .then((res) => {
-        window.localStorage.setItem("token", res.data.token);
+        window.localStorage.setItem("token", res.data.access_token);
         history.push("/");
       })
       .catch((err) => {
-        debugger;
+        //debugger;
         console.log(err);
       });
   };
