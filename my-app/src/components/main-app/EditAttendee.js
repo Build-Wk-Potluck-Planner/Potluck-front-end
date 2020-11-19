@@ -5,9 +5,8 @@ import { Input, Header, Button } from "../../styles";
 
 const initialFormValues = {
   // name: "",
-  location: "",
-  time: "",
-  date: "",
+  name: "",
+  foodname: "",
 };
 
 const EditEvent = () => {
@@ -21,18 +20,17 @@ const EditEvent = () => {
 
   useEffect(() => {
     axiosWithAuth()
-      .get(`/events/event/${params.id}`)
+      .get(`/attendees/attendee/${params.attendees}`)
       .then((res) => {
-        setFormValues(res.data);
+        setFormValues(res.data[0]);
       });
-  }, [params.id]);
+  }, [params.attendees]);
 
-  const editEvent = (e) => {
+  const editAttendee = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .put(`/events/event/${params.id}`, formValues)
+      .put(`/attendees/attendee/${params.attendeesid}`, formValues)
       .then(() => {
-        console.log(params);
         history.push("/reload");
       })
       .catch((err) => console.log(err));
@@ -40,37 +38,23 @@ const EditEvent = () => {
 
   return (
     <div className="event-form">
-      <Header>Edit Event</Header>
-      <form onSubmit={editEvent}>
-        {/* <Input
+      <Header>Edit Attendee</Header>
+      <form onSubmit={editAttendee}>
+        <Input
           type="text"
           name="name"
-          placeholder="Name of Event"
+          placeholder="Name of Attendee"
           value={formValues.name}
           onChange={handleChanges}
-        /> */}
-        <Input
-          type="text"
-          name="location"
-          placeholder="Location"
-          value={formValues.location}
-          onChange={handleChanges}
         />
         <Input
           type="text"
-          name="date"
-          placeholder="Date"
-          value={formValues.date}
+          name="foodname"
+          placeholder="Food Name"
+          value={formValues.foodname}
           onChange={handleChanges}
         />
-        <Input
-          type="text"
-          name="time"
-          placeholder="Time"
-          value={formValues.time}
-          onChange={handleChanges}
-        />
-        <Button>Edit Event</Button>
+        <Button>Edit Attendee</Button>
       </form>
     </div>
   );

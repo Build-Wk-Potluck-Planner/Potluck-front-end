@@ -4,13 +4,11 @@ import axiosWithAuth from "../../utils/axiosWithAuth";
 import { Input, Header, Button } from "../../styles";
 
 const initialFormValues = {
-  //name: "",
-  location: "",
-  time: "",
-  date: "",
+  attendee: "",
+  foodname: "",
 };
 
-const AddEvent = () => {
+const AddAttendee = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
   const history = useHistory();
 
@@ -18,10 +16,10 @@ const AddEvent = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  const addEvent = (e) => {
+  const addAttendee = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post(`/events/event`, formValues)
+      .post("/attendees/attendee", formValues)
       .then(() => {
         history.push("/reload");
       })
@@ -31,42 +29,27 @@ const AddEvent = () => {
   return (
     <>
       <div className="event-form">
-        <Header>Add Event</Header>
-        <form onSubmit={addEvent}>
-          {/* <Input
-            type="text"
-            name="name"
-            placeholder="Name of Event"
-            value={formValues.name}
-            onChange={handleChanges}
-          /> */}
+        <Header>Add Attendee</Header>
+        <form onSubmit={addAttendee}>
           <Input
             type="text"
-            name="location"
-            placeholder="Location"
-            value={formValues.location}
+            name="attendee"
+            placeholder="Attendee's Name"
+            value={formValues.attendee}
             onChange={handleChanges}
           />
           <Input
             type="text"
-            name="time"
-            placeholder="Time"
-            value={formValues.time}
+            name="foodname"
+            placeholder="Food Item"
+            value={formValues.foodname}
             onChange={handleChanges}
           />
-          <Input
-            type="text"
-            name="date"
-            placeholder="Date"
-            value={formValues.date}
-            onChange={handleChanges}
-          />
-
-          <Button>Add Event</Button>
+          <Button>Add Attendee</Button>
         </form>
       </div>
     </>
   );
 };
 
-export default AddEvent;
+export default AddAttendee;

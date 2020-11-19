@@ -10,14 +10,14 @@ const MyEvents = () => {
 
   const fetchEvents = () => {
     axiosWithAuth()
-      .get(`/api/events`)
+      .get("/events/events")
       .then((res) => setEventList(res.data))
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     fetchEvents();
-  });
+  }, []);
 
   return (
     <>
