@@ -3,7 +3,7 @@ import "./styles/App.css";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AppProvider } from "./components/main-app/AppContext";
 import NavBar from "./components/main-app/Navbar";
-import LoginForm from "./components/front-page/LoginForm";
+import Form from "./components/front-page/Form";
 import SignupForm from "./components/front-page/SignupForm";
 import MyEvents from "./components/main-app/MyEvents";
 import AddEvent from "./components/main-app/AddEvent";
@@ -20,7 +20,7 @@ const App = () => {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/login" component={Form} />
           <Route exact path="/signup" component={SignupForm} />
           <Redirect exact from="/reload" to="/" />
           <PrivateRoute exact path="/" component={MyEvents} />
@@ -36,10 +36,6 @@ const App = () => {
 };
 
 export default App;
-
-
-// import React, { useState } from "react";
-// import Form from "./Form";
 
 // const defaultValues = {
 //   name: "",
